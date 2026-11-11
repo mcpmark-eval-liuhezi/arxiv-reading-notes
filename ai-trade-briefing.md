@@ -75,3 +75,30 @@ All figures exactly as returned by the data service (no rounding or conversion).
 
 - Company profile, market data and institutional ownership: Yahoo Finance (ticker NVDA) — null.
 - Paper: Vaswani et al., "Attention Is All You Need", arXiv:1706.03762 — https://arxiv.org/abs/1706.03762 (abstract and Model Architecture section, incl. 3.2 Encoder and Decoder Stacks, 3.2.1 Scaled Dot-Product Attention, 3.2.2 Multi-Head Attention).
+
+---
+
+## 5. Knowledge base records
+
+The following entities and relations were created in the team knowledge graph (verified by read-back).
+
+### Entities (6)
+
+| Entity name | Type | Key observations |
+| --- | --- | --- |
+| NVIDIA | Company | Sector: Technology; Industry: Semiconductors; market cap 4078186790912 USD; institutional ownership 0.71384 (71.384% of shares); 7753 institutions; HQ Santa Clara, CA; ~42000 employees; beta 2.247; trailing P/E 21.351454; analyst consensus strong_buy (57 opinions); 52-week range 164.27–243.37 |
+| Attention Is All You Need | Academic Paper | arXiv 1706.03762; proposes the Transformer based solely on attention, dispensing with recurrence and convolutions; 28.4 BLEU on WMT 2014 En-De (+2 BLEU over prior best incl. ensembles); 41.8 BLEU on WMT 2014 En-Fr (single-model SOTA, 3.5 days on 8 GPUs); generalizes to English constituency parsing; N=6 encoder and decoder layers; scaled dot-product attention softmax(QK^T/√d_k)V; h=8 parallel heads with d_k=d_v=d_model/h=64 |
+| Transformer | Architecture | Encoder stack N=6 identical layers (2 sub-layers each); decoder stack N=6 identical layers (3 sub-layers each); scaled dot-product attention softmax(QK^T/√d_k)V; multi-head attention with h=8 heads, d_k=d_v=64; sinusoidal positional encodings; d_model=512, d_ff=2048 |
+| Blackrock Inc. | Institutional Holder | Top institutional holder of NVIDIA; most recently reported shares 1941918386; pctHeld 0.0806; value 327970595026 USD; pctChange 0.0085; date reported 2026-06-30 (epoch 1782777600000) |
+| Vanguard Capital Management LLC | Institutional Holder | Top institutional holder of NVIDIA; most recently reported shares 1540816358; pctHeld 0.0639; value 260228473762 USD; pctChange 0.0015; date reported 2026-06-30 (epoch 1782777600000) |
+| FMR, LLC | Institutional Holder | Top institutional holder of NVIDIA; most recently reported shares 1026051548; pctHeld 0.042600002; value 173289845315 USD; pctChange 0.0324; date reported 2026-06-30 (epoch 1782777600000) |
+
+### Relations (5)
+
+| From | Relation | To |
+| --- | --- | --- |
+| Blackrock Inc. | is a top institutional holder of | NVIDIA |
+| Vanguard Capital Management LLC | is a top institutional holder of | NVIDIA |
+| FMR, LLC | is a top institutional holder of | NVIDIA |
+| Attention Is All You Need | introduces | Transformer |
+| Transformer | underpins | NVIDIA's data-center AI business |
